@@ -1,0 +1,428 @@
+G_SUITE_2_==============
+g_suite_2_160x600 
+- Get
+- G Suite.
+- Forget
+- version
+- control.
+
+g_suite_2_300x600 
+- Get
+- G Suite.
+- Forget
+- version
+- control.
+
+g_suite_2_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Forget
+  - version
+-
+  - control.
+
+g_suite_2_468x60 
+-
+  - Get
+  - G Suite.
+  - Forget
+-
+  - version
+  - control.
+
+g_suite_2_728x90 
+-
+  - Get
+  - G Suite.
+  - Forget
+-
+  - version
+  - control.
+
+g_suite_2_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Forget
+  - version
+-
+  - control.
+
+G_SUITE_1_==============
+g_suite_1_160x600 
+- Get
+- G Suite.
+- Simplify
+- your
+- workday.
+
+g_suite_1_300x600 
+- Get
+- G Suite.
+- Simplify
+- your
+- workday.
+
+g_suite_1_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Simplify
+  - your
+-
+  - workday.
+
+g_suite_1_468x60 
+-
+  - Get
+  - G Suite.
+  - Simplify
+-
+  - your
+  - workday.
+
+g_suite_1_728x90 
+-
+  - Get
+  - G Suite.
+  - Simplify
+-
+  - your
+  - workday.
+
+g_suite_1_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Simplify
+  - your
+-
+  - workday.
+
+CALENDAR_==============
+calendar_160x600 
+-
+  - Get
+-
+  - G Suite.
+-
+  - Know
+-
+  - when
+-
+  - the
+-
+  - team
+  - is
+-
+  - free.
+
+calendar_300x600 
+-
+  - Get
+-
+  - G Suite.
+-
+  - Know
+  - when
+-
+  - the
+  - team
+-
+  - is
+  - free.
+
+calendar_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Know
+  - when
+  - the
+-
+  - team
+  - is
+  - free.
+
+calendar_468x60 
+-
+  - Get
+  - G Suite.
+  - Know
+-
+  - when
+  - the
+  - team
+  - is
+  - free.
+
+calendar_728x90 
+-
+  - Get
+  - G Suite.
+  - Know
+  - when
+-
+  - the
+  - team
+  - is
+  - free.
+
+calendar_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Know
+  - when
+  - the
+-
+  - team
+  - is
+  - free.
+
+DOCS_==============
+docs_160x600 
+- Get
+- G Suite.
+- Work
+- better
+- together.
+
+docs_300x600 
+- Get
+- G Suite.
+- Work
+- better
+- together.
+
+docs_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Work
+  - better
+-
+  - together.
+
+docs_468x60 
+-
+  - Get
+  - G Suite.
+-
+  - Work
+  - better
+  - together.
+
+docs_728x90 
+-
+  - Get
+  - G Suite.
+-
+  - Work
+  - better
+  - together.
+
+docs_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Work
+  - better
+-
+  - together.
+
+DRIVE_==============
+drive_160x600 
+-
+  - Get
+-
+  - G Suite.
+-
+  - Save
+  - time
+-
+  - with
+-
+  - suggested
+-
+  - files.
+
+drive_300x600 
+-
+  - Get
+-
+  - G Suite.
+-
+  - Save
+  - time
+-
+  - with
+-
+  - suggested
+-
+  - files.
+
+drive_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Save
+  - time
+  - with
+-
+  - suggested
+  - files.
+
+drive_468x60 
+-
+  - Get
+  - G Suite.
+  - Save
+  - time
+-
+  - with
+  - suggested
+  - files.
+
+drive_728x90 
+-
+  - Get
+  - G Suite.
+  - Save
+  - time
+-
+  - with
+  - suggested
+  - files.
+
+drive_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Save
+  - time
+  - with
+-
+  - suggested
+  - files.
+
+GMAIL_==============
+gmail_160x600 
+- Get
+- G Suite.
+- Choose
+- your
+- own
+- domain.
+
+gmail_300x600 
+-
+  - Get
+-
+  - G Suite.
+-
+  - Choose
+-
+  - your
+  - own
+-
+  - domain.
+
+gmail_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Choose
+  - your
+-
+  - own
+  - domain.
+
+gmail_468x60 
+-
+  - Get
+  - G Suite.
+  - Choose
+-
+  - your
+  - own
+  - domain.
+
+gmail_728x90 
+-
+  - Get
+  - G Suite.
+-
+  - Choose
+  - your
+  - own
+  - domain.
+
+gmail_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Choose
+  - your
+-
+  - own
+  - domain.
+
+DRIVE_SECURITY_==============
+drive_security_160x600 
+- Get
+- G Suite.
+- Simply
+- Secure.
+
+drive_security_300x600 
+- Get
+- G Suite.
+- Simply
+- Secure.
+
+drive_security_300x250 
+-
+  - Get
+  - G Suite.
+-
+  - Simply
+  - Secure.
+
+drive_security_468x60 
+-
+  - Get
+  - G Suite.
+-
+  - Simply
+  - Secure.
+
+drive_security_728x90 
+-
+  - Get
+  - G Suite.
+-
+  - Simply
+  - Secure.
+
+drive_security_970x250 
+-
+  - Get
+  - G Suite.
+-
+  - Simply
+  - Secure.
+

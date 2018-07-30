@@ -1,0 +1,11 @@
+{
+  "name": "yaml-arr-generator",
+  "version": "1.0.0",
+  "description": "A script for generating yaml arrays from strings with VSA boilerplate breakpoints.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gaetano Venezia",
+  "license": "ISC"
+}
