@@ -1,39 +1,9 @@
-// Each time you run build-final and zip-files, the bannerSize
-// variable needs to be updated for the size you are updating/uploading (scroll down to see more)
+function parseBreakpoints(concept, copy, size) {
+  
+  var item = 0;
 
-var feed;
-var item = 0;
-
-window.onload = function() {
-
-  feed = {
-    g_suite_2: {
-      copy: 'Get[[[300x600,160x600]]]G Suite.[[[300x600,160x600,300x250,970x250]]]Forget[[[300x600]]][[[160x600]]][[[468x60]]][[[728x90]]]version[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]control.'
-    },
-    g_suite_1: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Simplify[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]your[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]workday.'
-    },
-    calendar: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Know[[[160x600]]][[[468x60]]]when[[[300x600]]][[[160x600]]][[[728x90]]]the[[[160x600]]][[[300x250]]][[[970x250]]]team[[[300x600]]]is[[[160x600]]]free.'
-    },
-    docs: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[468x60]]][[[970x250]]]Work[[[300x600]]][[[160x600]]]better[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]together.'
-    },
-    drive: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Save time[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]with[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]suggested[[[300x600]]][[[160x600]]]files.'
-    },
-    gmail: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[970x250]]]Choose[[[300x600]]][[[160x600]]][[[468x60]]]your[[[160x600]]][[[300x250]]][[[970x250]]]own[[[300x600]]][[[160x600]]]domain.'
-    },
-    drive_security: {
-      copy: 'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[728x90]]][[[468x60]]][[[970x250]]]Simply[[[300x600]]][[[160x600]]]Secure.'
-    }
-  };
-  console.log(feed);
-  let Theme = document.getElementById("ad-inner").className;
-  let copy = feed[Theme].copy;
-
-  var size = document.getElementById("ad-inner").dataset.unit;
+  // Format copy (Collapses all size breakpoints by eliminating ']]][[[')
+  copy = copy.replace(/\]\]\]\[\[\[/g, ',');
 
   // Replaces [[[widthxheight]]]
   // Run production-level[[[468x60]]]Kubernetes clusters[[[160x600,300x250,468x60,728x90]]]minus operational burdens.
@@ -45,7 +15,7 @@ window.onload = function() {
   var copyArr = copy.split('<br/>');
   var getGSuiteArr
   var brandClass = "brand-blue";
-  if (feed[Theme] === "drive" || feed[Theme] === "drive security") {
+  if (concept === "cloud" || concept === "cloud security") {
     brandClass = "brand-green";
   }
 
@@ -59,7 +29,7 @@ window.onload = function() {
       } else if (index === 1) {
         copyArr[index] = "<span class='copy-" + index + " " + brandClass + "'>" + copyArr[index] + "</span>";
       } else {
-        if (feed[Theme] === "Calendar"){
+        if (concept === "Calendar"){
           var checkSpace = copyArr[index].split(/\s/);
           checkSpace.forEach(function(c, index) {
             if (c !== '') {extra.push(c);}
@@ -70,7 +40,7 @@ window.onload = function() {
       }
     });
 
-    if (feed[Theme] === "calendar"){
+    if (concept === "calendar"){
       copyArr.splice(2, 3);
 
       extra.forEach(function(e, index) {
@@ -126,7 +96,7 @@ window.onload = function() {
 
       // set number of span for each word after "Get G Suite"
       if (index === 2) {
-        if (feed[Theme] === "calendar" || index === 2 && feed[Theme] === "drive") {
+        if (concept === "calendar" || index === 2 && concept === "cloud") {
           copyNum = 5;
         } else {
           copyNum = 4;
@@ -243,84 +213,8 @@ window.onload = function() {
   //////// END OF ---PARSING THE BREAKPOINTS FOR DIFFERENT BANNER SIZES AND CAMPAIGNS ///////
 
   // Set Copy 
-  document.getElementById('headline').innerHTML = copyArr.join("<br/>");
+  return copyArr.join("<br/>");
 
-  // Create an image tag
-  var feedImage = feed["Image_" + size];
-  if (feedImage){
-    document.getElementById('icon').src = feed["Image_" + size].Url;
-  }
+};
 
-  //////// BEGINNING OF ---MAKE SURE THESE ARE SHOWING CORRECT SIZE BEFORE BUILD-FINAL AND ZIP-FILES--- //////////
-  ///// *** When viewing 320x50 or 320x100 on localhost, make sure to change the Copy_Line, CTA and Theme in dc-data.js to Mobile
-  ///// and correct copy based the spreadsheet to avoid errors.
-  ///// 320x50 or 320x100 do not have GIF animation.
-  ///// When viewing other campaigns in these two sizes you will only see white background.
-
-  ///// *** CHANGE YOUR BANNER SIZE HERE *** /////
-  ///// If you want to view 300x600, change it so...
-  var bannerSize = "160x600";
-
-  // Set Copy's Font Size
-  var typeSize = feed["Font_" + bannerSize];
-  if (typeSize) {
-    document.getElementById('headline').style.fontSize = (typeSize + "px");
-  }
-
-  // Set Copy's Line Height
-  var lineHeight = feed["Line_height_" + bannerSize];
-  if (lineHeight) {
-    document.getElementById('headline').style.lineHeight = (lineHeight + "px");
-  }
-
-  // Set Copy's Letter Spacing
-  var letterSpacing = feed["Spacing_" + bannerSize];
-  if (letterSpacing) {
-    document.getElementById('headline').style.letterSpacing = (letterSpacing + "px");
-  }
-
-  //  Set Copy's Top Position
-  if (size === '160x600' || size === '300x600') {
-    var topPos = feed["Top_" + bannerSize];
-    if (topPos) {
-      document.getElementById('headline').style.top = (topPos + "px");
-    }
-  } else if (size === '970x250' && feed[Theme] === 'drive security') {
-    document.getElementById('headline').style.top = "60px";
-  }
-
-  // Set Copy's Left Position
-  if (size === '468x60' || size === '728x90' || size === '970x250') {
-    var leftPos = feed["Left_" + bannerSize];
-    if (leftPos) {
-      document.getElementById('headline').style.left = (leftPos + "px");
-    }
-  }
-//////// END OF ---MAKE SURE THESE ARE SHOWING CORRECT SIZE BEFORE BUILD-FINAL AND ZIP-FILES--- //////////
-
-  // Set Theme
-  var theme = Theme.toLowerCase();
-  if (theme == "blue") {
-    // set background
-    document.getElementById("ad-wrapper").style.backgroundColor = "#0D0D32";
-
-    // set border color
-    document.getElementById("ad-wrapper").style.borderColor = "#9AA0A6";
-
-    // set copy color
-     document.getElementById("headline").style.color = "#FFFFFF";
-
-    // set gcp image
-    document.getElementById("logo").src = "img/dynamic_logo.png";
-
-    // set group icons
-    document.getElementById("group_icons").src = "img/group_icons.svg";
-
-    // set google cloud image
-    // document.getElementById('google_cloud').src = "images/google_cloud.png";
-  }
-
-  // kick off animation
-  init();
-
-}
+module.exports = {parseBreakpoints: parseBreakpoints};

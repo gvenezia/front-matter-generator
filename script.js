@@ -1,50 +1,67 @@
-const fs = require('fs');
+const fs = require('fs'),
+      adaptedParsingFile = require('./adaptedParsingFile.js');
 
-let yamlText = '';
-let concepts = ['g_suite_2_','g_suite_1_','calendar_','docs_','drive_','gmail_','drive_security_'];
+
+// =========== Set up the variables for the script ===========
+let yamlText = ''; 
+let concepts = ['product_group_1_','product_group_2_','calendar_','text_','cloud_','mail_','cloud_security_'];
 let sizes    = ['160x600','300x600','300x250','468x60','728x90','970x250'];
 // Copy in the same order as concepts to access with the same index
-let copy     = ['Get[[[300x600,160x600]]]G Suite.[[[300x600,160x600,300x250,970x250]]]Forget[[[300x600]]][[[160x600]]][[[468x60]]][[[728x90]]]version[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]control.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Simplify[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]your[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]workday.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Know[[[160x600]]][[[468x60]]]when[[[300x600]]][[[160x600]]][[[728x90]]]the[[[160x600]]][[[300x250]]][[[970x250]]]team[[[300x600]]]is[[[160x600]]]free.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[468x60]]][[[970x250]]]Work[[[300x600]]][[[160x600]]]better[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]together.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Save[[[]]]time[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]with[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]suggested[[[300x600]]][[[160x600]]]files.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[970x250]]]Choose[[[300x600]]][[[160x600]]][[[468x60]]]your[[[160x600]]][[[300x250]]][[[970x250]]]own[[[300x600]]][[[160x600]]]domain.',
-                'Get[[[300x600]]][[[160x600]]]G Suite.[[[300x600]]][[[160x600]]][[[300x250]]][[[728x90]]][[[468x60]]][[[970x250]]]Simply[[[300x600]]][[[160x600]]]Secure.'
+let copy     = ['Get[[[300x600,160x600]]]Our Product.[[[300x600,160x600,300x250,970x250]]]Copy[[[300x600]]][[[160x600]]][[[468x60]]][[[728x90]]]Copy2[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Copy3.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]Copy1[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]copy2[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]copy4.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]copy[[[160x600]]][[[468x60]]]copy2[[[300x600]]][[[160x600]]][[[728x90]]]copy3[[[160x600]]][[[300x250]]][[[970x250]]]copy4[[[300x600]]]is[[[160x600]]]free.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[468x60]]][[[970x250]]]copy1[[[300x600]]][[[160x600]]]copy3[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]copy4.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]copy1[[[]]]copy2[[[300x600]]][[[160x600]]][[[728x90]]][[[468x60]]]copy3[[[300x600]]][[[160x600]]][[[300x250]]][[[970x250]]]copy5[[[300x600]]][[[160x600]]]files.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[728x90]]][[[300x250]]][[[970x250]]]copy1[[[300x600]]][[[160x600]]][[[468x60]]]copy3[[[160x600]]][[[300x250]]][[[970x250]]]copy4[[[300x600]]][[[160x600]]]copy5.',
+                'Get[[[300x600]]][[[160x600]]]Our Product.[[[300x600]]][[[160x600]]][[[300x250]]][[[728x90]]][[[468x60]]][[[970x250]]]copy1[[[300x600]]][[[160x600]]]copy2.'
                 ];
-let copyLength = [5, 5, 8, 5, 7, 6, 4];
+let exitUrls = ['link1','link2','link3','link4','link5','link6','link7'];
 
-// Cycle through each concept
+// =========== Cycle through each concept ===========
 for (let c = 0; c < concepts.length; c++){
-  yamlText += `${concepts[c].toUpperCase()}==============\n`;
-
-  // Format copy (Collapses all size breakpoints by eliminating ']]][[[')
-  let conceptCopy = copy[c].replace(/\]\]\]\[\[\[/g, ',');
-
   // Create copy for all sizes
   for (let i = 0; i < sizes.length; i++){
-    let formattedCopy = '';
 
-    if (conceptCopy.split(sizes[i]).length !== copyLength[c] ) {
-      formattedCopy += '\n-\n  - ';
+    formattedCopy = adaptedParsingFile.parseBreakpoints(concepts[c], copy[c], sizes[i]);  
+  
+    let yamlText = 
+`---
+layout: default
+concept: ${concepts[c].slice(0, -1)}
+width: ${sizes[i].slice(0, 3)}
+height: ${sizes[i].slice(4)}
+title: ${sizes[i].slice(0, 3)} x ${sizes[i].slice(4)}
+usejs: true
+greensock: true
+use_default_image: true
+globalanimation: true
+headline: ${formattedCopy}
+image: ${concepts[c] + sizes[i] + '.gif'}
+exit_url: ${exitUrls[c]}
+---
 
-      // Replaces [[[widthxheight]]]
-      formattedCopy += conceptCopy.replace(/\[\[\[(.*?)\]\]\]/g, (match, pGroup1) => {
-        return pGroup1.indexOf(sizes[i]) >= 0 ? '\n-\n  - ' : '\n  - ';
-      });
-    } else {
-      formattedCopy += formattedCopy += '\n- ';
+<div id="ad-wrapper" class="ad-wrapper ad-{{page.width}}-{{page.height}}" width="{{ ad.width }}" height="{{ ad.height }}">
+    {% include banner_body.html %}
+</div>
+`;
 
-      formattedCopy += conceptCopy.replace(/\[\[\[(.*?)\]\]\]/g, (match, pGroup1) => {
-        return pGroup1.indexOf(sizes[i]) >= 0 ? '\n- ' : '\n- ';
-      });
+    // create ads folder
+    if (!fs.existsSync(`ads/`)){
+      fs.mkdirSync(`ads/`);
+    }
+    
+    // create Concept and size folder 
+    if (!fs.existsSync(`ads/${concepts[c]}${sizes[i]}`)){
+      fs.mkdirSync(`ads/${concepts[c]}${sizes[i]}`);
     }
 
-    yamlText += `${concepts[c]}${sizes[i]} ${formattedCopy}\n\n`;  
-  }
-}
+    // Write the Front Matter file
+    fs.writeFile(`ads/${concepts[c]}${sizes[i]}/index.html`, yamlText, (err) => {
+      if (err) throw err;
+    });
+  } // Complete one size for current concept, move to next size
 
-fs.writeFile('yaml-arr.txt', yamlText, (err) => {
-  if (err) throw err;
-  console.log(`The formatted copy for all concepts was appended to file!`);
-});
+  
+} // Complete all concepts
+
+console.log('\n√ √ √ √ √ √ Success! √ √ √ √ √ √\n');
