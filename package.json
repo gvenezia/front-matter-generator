@@ -1,7 +1,7 @@
 {
   "name": "yaml-arr-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "An anonymized node script I wrote for a banner ad project. The script parses breakpoints, dynamically generates Jekyll Front Matter, and places all Front Matter in a dynamically generated folder/file structure.",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
