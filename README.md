@@ -12,8 +12,8 @@ Our team had to convert dynamic banner ads to static banner ads. The dynamic ads
 1. I pulled the data from the Studio Dynamic Feed (an excel sheet).
 2. I formatted the data as arrays in the `script.js` file.
 3. I wrote two `for` loops in order to cycle through all concepts and sizes. 
-4. Within these `for` loops, I populated our standard Front Matter with dynamic values.
-  A. The copy for each ad has special breakpoints that external function parses according to our original setup for Studio's dynamic feed.
+4. Within these `for` loops, I populated our standard Front Matter with dynamic values.  
+    1. The copy for each ad has special breakpoints, classes, and `<spans>` that an external function parses according to our original setup for Studio's dynamic feed.
 5. With node's `fs` I created`||`used the `./ads/` folder, created`||`used current concept/size folder, and populated the relevant `index.html` file w/ the generated Front Matter.
 6.  Step 5 is repeated for all concept/sizes (44 total).
 
