@@ -17,8 +17,8 @@ Great question! I was given these inconsistent naming conventions by team member
 3. I wrote two `for` loops in order to cycle through all concepts and sizes. 
 4. Within these `for` loops, I populated our standard Front Matter with dynamic values.  
     1. The copy for each ad has special breakpoints, classes, and `<spans>` that an external function parses according to our original setup for Studio's dynamic feed.
-5. With node's `fs` I created`||`used the `./ads/` folder, created`||`used current concept/size folder, and populated the relevant `index.html` file w/ the generated Front Matter.
-6.  Step 5 is repeated for all concept/sizes (44 total).
+5. With node's `fs` I created/used the `./ads/` folder, created/used current concept/size folder, and populated the relevant `index.html` file w/ the generated Front Matter.
+6.  Step 5 is repeated for all concept/sizes (42 total).
 
 ## What's it end up looking like?
 You can check the folders and files in `ads` to see an example of what the output looks like.
