@@ -8,6 +8,9 @@ This node script was designed for a specific banner ad project (I've anonymized 
 ## Why'd you make it?
 Our team had to convert dynamic banner ads to static banner ads. The dynamic ads were built using Google Studio (previously, DoubleClick Studio), I wanted to create a script to generate all the necessary Front Matter files for our local Jekyll repo. Previously we had been writing these files by hand, then copy/pasting/editing for each concept/size (44 files total).
 
+## Why didn't you use consistent naming conventions?
+Great question! I was given these inconsistent naming conventions by team members (who created images, designs, project structure etc.), so instead of manually renaming files I decided to programmatically format the names.
+
 ## How'd you do it?
 1. I pulled the data from the Studio Dynamic Feed (an excel sheet).
 2. I formatted the data as arrays in the `script.js` file.

@@ -5,6 +5,10 @@ function parseBreakpoints(concept, copy, size) {
   // Format copy (Collapses all size breakpoints by eliminating ']]][[[')
   copy = copy.replace(/\]\]\]\[\[\[/g, ',');
 
+  // Format Concept
+  concept = concept.replace(/_/g, ' ')
+                    .slice(0, -1);
+
   // Replaces [[[widthxheight]]]
   // Run production-level[[[468x60]]]Kubernetes clusters[[[160x600,300x250,468x60,728x90]]]minus operational burdens.
   copy = copy.replace(/\[\[\[(.*?)\]\]\]/g, function(a, b) {
@@ -29,7 +33,7 @@ function parseBreakpoints(concept, copy, size) {
       } else if (index === 1) {
         copyArr[index] = "<span class='copy-" + index + " " + brandClass + "'>" + copyArr[index] + "</span>";
       } else {
-        if (concept === "Calendar"){
+        if (concept === "calendar"){
           var checkSpace = copyArr[index].split(/\s/);
           checkSpace.forEach(function(c, index) {
             if (c !== '') {extra.push(c);}
